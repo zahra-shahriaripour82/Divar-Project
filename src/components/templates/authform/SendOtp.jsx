@@ -1,9 +1,17 @@
+import { useSendOtp } from "../../../core/services/mutations";
 
 
 function SendOtp({mobile ,setMobile,setStep}) {
+  const {mutate,isPending}=useSendOtp()
   const sumbitHandler=(e)=>{
     e.preventDefault();
-console.log(e);
+mutate({mobile},{onSuccess:(data)=>{
+console.log(data);
+
+},onError:(error)=>{
+  console.log(error);
+  
+}})
 
   }
   return (
