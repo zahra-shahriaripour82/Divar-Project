@@ -3,7 +3,7 @@ import SendOtp from "../components/templates/authform/SendOtp";
 import CheckOtp from "../components/templates/authform/CheckOtp";
 
 function AuthPage() {
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(1);
   const [mobile, setMobile] = useState("");
   const [code, setCode] = useState("");
   return (
@@ -16,7 +16,7 @@ function AuthPage() {
           code={code}
           setCode={setCode}
           mobile={mobile}
-          setStep={setCode}
+          setStep={setStep}
         />
       )}
     </div>

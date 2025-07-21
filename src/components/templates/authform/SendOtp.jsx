@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { useSendOtp } from "../../../core/services/mutations";
-import { isValidMobile } from "../../../core/utils/validation";
+import { useSendOtp } from "core/services/mutations";
+import { isValidMobile } from "core/utils/validation";
 import toast from "react-hot-toast";
 
 function SendOtp({ mobile, setMobile, setStep }) {
+  
   const [error, setError] = useState("");
   const { mutate, isPending } = useSendOtp();
   const sumbitHandler = (e) => {
@@ -18,6 +19,7 @@ function SendOtp({ mobile, setMobile, setStep }) {
         onSuccess: (data) => {
           toast.success("کد با موفقیت ارسال شد ");
           setStep(2);
+          toast.success(data?.data?.code)
           console.log(data);
         },
         onError: (error) => {
