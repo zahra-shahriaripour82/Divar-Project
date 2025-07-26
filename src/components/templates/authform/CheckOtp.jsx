@@ -1,6 +1,7 @@
 import toast from "react-hot-toast";
-import { useCheckOtp } from "core/services/mutations";
-import { setCookie } from "core/utils/cookie";
+import { useCheckOtp } from "../../../core/services/mutations";
+import { setCookie } from "../../../core/utils/cookie";
+
 
 
 function CheckOtp({ code, setCode, setStep, mobile }) {

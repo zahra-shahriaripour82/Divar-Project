@@ -1,6 +1,7 @@
 import { useState } from "react";
-import SendOtp from "../components/templates/authform/SendOtp";
+
 import CheckOtp from "../components/templates/authform/CheckOtp";
+import SendOtp from "../components/templates/authform/SendOtp";
 
 function AuthPage() {
   const [step, setStep] = useState(1);
@@ -19,6 +20,7 @@ function AuthPage() {
           setStep={setStep}
         />
       )}
+  
     </div>
   );
 }

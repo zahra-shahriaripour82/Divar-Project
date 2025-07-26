@@ -3,7 +3,8 @@ const paths=[
     "assets",
     "components",
     "core",
-    "pages",
-    "router"
+    "Pages",
+    "router",
+    "styles",
 ];
 export {paths}

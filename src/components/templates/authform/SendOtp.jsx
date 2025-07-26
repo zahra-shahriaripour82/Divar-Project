@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useSendOtp } from "core/services/mutations";
-import { isValidMobile } from "core/utils/validation";
+import { useSendOtp } from "../../../core/services/mutations";
+import { isValidMobile } from "../../../core/utils/validation";
 import toast from "react-hot-toast";
 
 function SendOtp({ mobile, setMobile, setStep }) {
