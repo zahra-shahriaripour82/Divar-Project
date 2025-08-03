@@ -12,6 +12,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <TanstackQueryProvider>
     <App />
+   
     </TanstackQueryProvider>
     <Toaster/>
   </React.StrictMode>
