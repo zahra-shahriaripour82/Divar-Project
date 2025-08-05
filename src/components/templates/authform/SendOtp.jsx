@@ -1,7 +1,9 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
+
+import styles from "../authform/SendOtpForm.module.css"
 import { useSendOtp } from "../../../core/services/mutations";
 import { isValidMobile } from "../../../core/utils/validation";
-import toast from "react-hot-toast";
 
 function SendOtp({ mobile, setMobile, setStep }) {
   
@@ -30,7 +32,7 @@ function SendOtp({ mobile, setMobile, setStep }) {
     );
   };
   return (
-    <form onSubmit={sumbitHandler}>
+    <form onSubmit={sumbitHandler} className={styles.form}>
       <p>ورود به حساب کاربری</p>
       <span>
         برای استفاده از امکانات دیوار،لطفا شماره موبایل خود را وارد کنید. کد

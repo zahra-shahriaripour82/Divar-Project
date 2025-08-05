@@ -3,7 +3,7 @@ import { useCheckOtp } from "../../../core/services/mutations";
 import { setCookie } from "../../../core/utils/cookie";
 import { useNavigate } from "react-router-dom";
 import { useGetUserProfile } from "../../../core/services/queri";
-
+import styles from "../authform/CheckOtpForm.module.css"
 
 
 function CheckOtp({ code, setCode, setStep, mobile }) {
@@ -20,12 +20,12 @@ if(isPending) return ;
 mutate({code,mobile},{onSuccess:(data)=>{
 setCookie(data?.data);
 navigate("/")
-// refetch()
+refetch()
   console.log(data);
   
 },onError:(error)=>{
   toast.error(";")
-console.log(error);
+
 
   console.log(error);
   
@@ -35,7 +35,7 @@ console.log(error);
 
   }
   return (
-    <form onSubmit={submitHandler}>
+    <form onSubmit={submitHandler} className={styles.form}>
       <p> کد تایید را وارد کنید. </p>
       <span>کد تایید به شماره {mobile} ارسال شد</span>
       <input
@@ -46,7 +46,7 @@ console.log(error);
         onChange={(e) => setCode(e.target.value)}
       />
       <button type ="submit">ورود</button>
-      <button onClick={()=> setStep(1)}>تغییر شماره موبایل </button>
+      <button onClick={()=> setStep(1)} className={styles.backButton}>تغییر شماره موبایل </button>
     </form>
   );
 }
