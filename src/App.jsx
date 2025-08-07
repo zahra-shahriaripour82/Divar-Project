@@ -1,12 +1,14 @@
-
-import {BrowserRouter } from "react-router-dom"
+import { BrowserRouter } from "react-router-dom";
 import Router from "../router/Router";
+import Layout from "./layouts/Layout";
 function App() {
   return (
-   <BrowserRouter>
-   <Router/>
-   </BrowserRouter>
-  )
+    <BrowserRouter>
+      <Layout>
+        <Router />
+      </Layout>
+    </BrowserRouter>
+  );
 }
 
 export default App;

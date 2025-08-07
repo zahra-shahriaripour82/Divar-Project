@@ -6,11 +6,14 @@ import { useGetUserProfile } from "../../../core/services/queri";
 import styles from "../authform/CheckOtpForm.module.css"
 
 
+
+
 function CheckOtp({ code, setCode, setStep, mobile }) {
+
   
   const {mutate,isPending}=useCheckOtp()
 const navigate=useNavigate();
-const {refetch}=useGetUserProfile()
+// const {refetch}=useGetUserProfile()
   const submitHandler=(e)=>{
 e.preventDefault();
 console.log({code});
@@ -20,7 +23,7 @@ if(isPending) return ;
 mutate({code,mobile},{onSuccess:(data)=>{
 setCookie(data?.data);
 navigate("/")
-refetch()
+// refetch()
   console.log(data);
   
 },onError:(error)=>{
