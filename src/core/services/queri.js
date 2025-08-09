@@ -1,18 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
-import api from "../configs/api"
+import api from "../configs/api";
 
-const useGetUserProfile=()=>{
-const queryFn=()=>api.get("/user/whoami");
-const queryKey=["profile"];
-return useQuery({queryFn,queryKey})
-}
-// const useGetUserProfile = () => {
-//   const queryFn = async () => {
-//     const res = await api.get("/user/whoami");
-//     return res.data; 
-//   };
+const useGetUserProfile = () => {
+  const queryFn = () => api.get("/user/whoami");
+  const queryKey = ["profile"];
+  return useQuery({ queryFn, queryKey });
+};
+const useGetCategories = () => {
+  const queryFn = () => api.get("/category");
+  const queryKey = ["categories"];
+  return useQuery({ queryFn, queryKey });
+};
 
-//   const queryKey = ["profile"];
-//   return useQuery({ queryFn, queryKey });
-// };
-export {useGetUserProfile}
+export { useGetUserProfile, useGetCategories };

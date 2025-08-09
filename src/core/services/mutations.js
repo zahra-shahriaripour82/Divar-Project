@@ -12,4 +12,15 @@ const useCheckOtp=()=>{
 
     return useMutation({mutationFn})
 }
-export {useSendOtp,useCheckOtp}
+
+
+const useCategory=()=>{
+    const mutationFn = (data)=>api.post("/category",data)
+    return useMutation({mutationFn})
+}
+
+const useDeleteCategory=()=>{
+    const mutationFn=(id)=>api.delete(`/category/${id}`,id)
+    return useMutation({mutationFn})
+}
+export {useSendOtp,useCheckOtp,useCategory,useDeleteCategory}
