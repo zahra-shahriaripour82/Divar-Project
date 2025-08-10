@@ -1,4 +1,4 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import api from "../configs/api";
 
 
@@ -15,12 +15,20 @@ const useCheckOtp=()=>{
 
 
 const useCategory=()=>{
+const queryClient = useQueryClient();
     const mutationFn = (data)=>api.post("/category",data)
-    return useMutation({mutationFn})
+    const onSuccess=()=> queryClient.invalidateQueries({queryKey: ["categories"]})
+
+    
+      
+ 
+    return useMutation({mutationFn,onSuccess})
 }
 
 const useDeleteCategory=()=>{
+    const queryClient = useQueryClient();
     const mutationFn=(id)=>api.delete(`/category/${id}`,id)
-    return useMutation({mutationFn})
+    const onSuccess=()=> queryClient.invalidateQueries({queryKey: ["categories"]})
+    return useMutation({mutationFn,onSuccess})
 }
 export {useSendOtp,useCheckOtp,useCategory,useDeleteCategory}
