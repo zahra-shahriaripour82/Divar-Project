@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import styles from "../authform/SendOtpForm.module.css";
 import { useSendOtp } from "../../../core/services/mutations";
 import { isValidMobile } from "../../../core/utils/validation";
+import { p2e } from "../../../core/utils/replaceNumber";
 
 function SendOtp({ mobile, setMobile, setStep }) {
   const [error, setError] = useState("");
@@ -43,7 +44,7 @@ function SendOtp({ mobile, setMobile, setStep }) {
         placeholder="شماره موبایل"
         value={mobile}
         onChange={(e) => {
-          setMobile(e.target.value);
+          setMobile(p2e(e.target.value));
         }}
       ></input>
       {!!error && <p>{error}</p>}

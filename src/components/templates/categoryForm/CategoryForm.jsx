@@ -19,13 +19,12 @@ function CategoryForm() {
     mutate(form, {
       onSuccess: (data) => {
         toast.success("دسته بندی با موفقیت ایجاد شد");
-        setForm({ name: "", slug: "", icon: "" })
+        setForm({ name: "", slug: "", icon: "" });
         console.log(data);
       },
       onError: (error) => {
         toast.error("خطا در ایجاد دسته بندی لطفا دوباره امتحان کنید");
         console.log(error);
-        
       },
     });
     console.log(form);
@@ -39,7 +38,7 @@ function CategoryForm() {
     >
       <h3>دسته بندی جدید</h3>
       <label htmlFor="name">اسم دسته بندی</label>
-      <input type="text" name="name" id="name"  value={form.name} />
+      <input type="text" name="name" id="name" value={form.name} />
 
       <label htmlFor="slug">اسلاگ</label>
       <input type="text" name="slug" id="slug" value={form.slug} />

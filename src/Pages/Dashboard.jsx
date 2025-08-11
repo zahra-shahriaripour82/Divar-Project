@@ -1,9 +1,14 @@
-import AddPost from "../components/templates/addPoster/AddPost"
+import AddPost from "../components/templates/addPoste/AddPost"
+import PostList from "../components/templates/postList/PostList"
 
 
 function Dashboard() {
   return (
+    <>
     <AddPost/>
+    <PostList/>
+    </>
+    
   )
 }
 

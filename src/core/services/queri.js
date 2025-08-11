@@ -12,4 +12,9 @@ const useGetCategories = () => {
   return useQuery({ queryFn, queryKey });
 };
 
-export { useGetUserProfile, useGetCategories };
+const useGetMyPostList =()=>{
+  const queryFn=()=>api.get("/post/my");
+  const queryKey=["my-post-list"];
+  return useQuery({queryFn,queryKey})
+}
+export { useGetUserProfile, useGetCategories,useGetMyPostList };
