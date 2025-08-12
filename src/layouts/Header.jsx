@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
-
+import { useState } from "react";
+import DropMenu from "../components/templates/dropmenu/DropMenu"
 function Header() {
+  const [openDropMenu,setOpenDropMenu]=useState(false);
+  console.log(openDropMenu);
+  
   return (
     <header className={styles.header}>
       <div>
@@ -14,7 +18,7 @@ function Header() {
         </span>
       </div>
       <div>
-        <Link to={"/auth"}>
+        <Link to={"/"} onClick={()=>setOpenDropMenu(!openDropMenu)}>
           <span>
             <img src="profile.svg" />
             <p>دیوار من</p>
@@ -24,6 +28,7 @@ function Header() {
           ثبت آگهی
         </Link>
       </div>
+      {!!openDropMenu && <DropMenu openDropMenu={openDropMenu} setOpenDropMenu={setOpenDropMenu}/>}
     </header>
   );
 }

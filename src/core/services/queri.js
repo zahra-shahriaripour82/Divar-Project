@@ -17,4 +17,10 @@ const useGetMyPostList =()=>{
   const queryKey=["my-post-list"];
   return useQuery({queryFn,queryKey})
 }
-export { useGetUserProfile, useGetCategories,useGetMyPostList };
+
+const useGetAllPost=()=>{
+  const queryFn=()=>api.get("/");
+  const queryKey=["AllPost"];
+  return useQuery({queryFn,queryKey})
+}
+export { useGetUserProfile, useGetCategories,useGetMyPostList ,useGetAllPost };
