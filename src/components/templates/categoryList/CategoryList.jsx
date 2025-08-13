@@ -5,7 +5,7 @@ import Loader from "../../partials/Loader";
 import styles from "./CategoryList.module.css";
 
 function CategoryList() {
-  const { data, isLoading, error } = useGetCategories();
+  const { data, isLoading } = useGetCategories();
   const { mutate } = useDeleteCategory();
   console.log({ data, isLoading });
   const deleteButtonHandler = (categoryId) => {

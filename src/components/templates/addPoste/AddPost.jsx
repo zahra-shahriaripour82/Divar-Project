@@ -42,14 +42,7 @@ function AddPost() {
       })
       .then((res) => {
         toast.success(res?.data?.message);
-        //  setForm({
-        //    title:"",
-        //   content :"",
-
-        //   city:"",
-        //   amount:null,
-        //   images:null,
-        //  })
+      
         console.log(res);
       })
       .catch((error) => {
@@ -62,15 +55,15 @@ function AddPost() {
     <form onChange={changeHandler} className={styles.form}>
       <h3>افزودن آگهی</h3>
       <label htmlFor="text">عنوان</label>
-      <input type="text" name="title" id="title" value={form.title} />
+      <input type="text" name="title" id="title"  />
       <label htmlFor="text">توضیحات</label>
-      <textarea name="content" id="content" value={form.content} />
+      <textarea name="content" id="content"  />
       <label htmlFor="amount">قیمت</label>
-      <input type="number" name="amount" id="amount" value={form.amount} />
+      <input type="number" name="amount" id="amount"  />
       <label htmlFor="city">شهر</label>
-      <input type="text" name="city" id="city" value={form.city} />
+      <input type="text" name="city" id="city"  />
       <label htmlFor="city">دسته بندی</label>
-      <select name="category" id="category" value={form.category}>
+      <select name="category" id="category" >
         {data?.data.map((category) => (
           <option key={category._id} value={category._id}>
             {category.name}

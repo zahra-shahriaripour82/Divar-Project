@@ -1,14 +1,14 @@
-import toast from "react-hot-toast";
 import { useCheckOtp } from "../../../core/services/mutations";
 import { setCookie } from "../../../core/utils/cookie";
 import { useNavigate } from "react-router-dom";
-import { useGetUserProfile } from "../../../core/services/queri";
+import toast from "react-hot-toast";
+
 import styles from "../authform/CheckOtpForm.module.css";
 
 function CheckOtp({ code, setCode, setStep, mobile }) {
   const { mutate, isPending } = useCheckOtp();
   const navigate = useNavigate();
-  // const {refetch}=useGetUserProfile()
+ 
   const submitHandler = (e) => {
     e.preventDefault();
     console.log({ code });

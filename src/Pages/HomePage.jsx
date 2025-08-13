@@ -1,21 +1,22 @@
-import Loader from "../components/partials/Loader";
+import { useGetAllPost, useGetCategories, } from "../core/services/queri"
 import MainPage from "../components/templates/homePage/MainPage"
 import Sidebar from "../components/templates/homePage/Sidebar"
-import { useGetAllPost, } from "../core/services/queri"
+import Loader from "../components/partials/Loader";
 
 const style = {
   display:"flex"
 }
 
 function HomePage() {
-  const {data,isLoading}=useGetAllPost();
-  console.log(data);
-  if(isLoading) return 
+  const {data :Posts,isLoading :postLoading}=useGetAllPost();
+  const { data :categories, isLoading :categoryLoading} = useGetCategories();
+  console.log({Posts,categories});
+  
   return (
     <>
-   {isLoading ? <Loader/>  : (<div style={style}>
-<Sidebar/>
-<MainPage posts={data}/>
+   {postLoading || categoryLoading ? <Loader/>  : (<div style={style}>
+<Sidebar categories={categories}/>
+<MainPage posts={Posts}/>
    </div>)}
     </>
     
