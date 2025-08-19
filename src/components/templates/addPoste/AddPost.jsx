@@ -6,7 +6,9 @@ import styles from "./AddPost.module.css";
 import axios from "axios";
 
 import toast from "react-hot-toast";
+import { useQueryClient } from "@tanstack/react-query";
 function AddPost() {
+     const queryClient = useQueryClient();
   const [form, setForm] = useState({
     title: "",
     content: "",
@@ -42,7 +44,7 @@ function AddPost() {
       })
       .then((res) => {
         toast.success(res?.data?.message);
-      
+      queryClient.invalidateQueries(["divar/src/core/services/queri.js"]); 
         console.log(res);
       })
       .catch((error) => {

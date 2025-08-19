@@ -6,7 +6,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 
 function DropMenu({ openDropMenu, setOpenDropMenu }) {
-  const [isLogOutModalOpen,setIsLogOutModalOpen]=useState(false)
+
   const {data} =useGetUserProfile()
    const queryClient = useQueryClient();
 
@@ -21,7 +21,7 @@ function DropMenu({ openDropMenu, setOpenDropMenu }) {
   
 
   return (
-    <>
+    
    
     <div className={styles.DropMenu}>
       {data?.data ? (<div className={styles.exit} onClick={handleLogout}>
@@ -36,19 +36,10 @@ function DropMenu({ openDropMenu, setOpenDropMenu }) {
         </Link>
         )
       }
-      {/* <div className={styles.exit}>
-        <img src="logOut.svg" />
-        <p>خروج از حساب کابری</p>
-      </div> */}
-      {/* <div className={styles.adminPanel}>
-<Link>
-<p>پنل ادمین</p>
-</Link>
-      </div>
-       */}
+      
     </div>
-    {isLogOutModalOpen &&<LogOutModal  onConfirm={confirmLogOut} onCansel={CanseslLogOut}/>}
-     </>
+    
+     
   );
 }
 

@@ -18,7 +18,7 @@ function MainPage({posts}) {
   </div>
 
 </div>
-<img src={`${baseURL}${post.images[0]} `} />
+<img src={post?.images[0] ? `${baseURL}${post.images[0]}` : "NoContent.jpg"} />
 </div>
       ))}
     </div>

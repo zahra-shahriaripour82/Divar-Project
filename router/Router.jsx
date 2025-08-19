@@ -7,6 +7,7 @@ import HomePage from "../src/Pages/HomePage";
 import { useGetUserProfile } from "../src/core/services/queri";
 import Loader from "../src/components/partials/Loader";
  // phone num for login as admin is : 09189990099
+
 function Router() {
   const { data, isLoading, error } = useGetUserProfile();
   console.log("data",{ data,isLoading,error });
